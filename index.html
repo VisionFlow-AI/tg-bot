@@ -379,6 +379,11 @@
         }
         .card:hover::before { opacity: 1; }
 
+        .card-extra {
+            margin-top: 24px;
+            animation: none;
+        }
+
         .card h2 {
             font-family: 'Unbounded', sans-serif;
             font-size: clamp(1.2rem, 4vw, 1.4rem);
@@ -531,6 +536,51 @@
         .video-sound-btn svg { width: 22px; height: 22px; fill: #fff; }
         .video-sound-btn.hidden { opacity: 0; pointer-events: none; }
 
+        .content-img-wrap {
+            margin-top: 24px;
+            margin-bottom: 24px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .content-img-wrap img {
+            width: 100%;
+            display: block;
+        }
+        .content-img-caption {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            padding: 10px 16px;
+            background: rgba(0,0,0,0.2);
+        }
+        .steps-list {
+            list-style: none;
+            counter-reset: step;
+            padding-left: 0;
+        }
+        .steps-list li {
+            position: relative;
+            padding-left: 44px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .steps-list li::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            color: #030308;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
         .footer-note {
             margin-top: 32px;
             font-size: 0.85rem;
@@ -628,15 +678,47 @@
             <ul class="features">
                 <li><strong>Бесплатно:</strong> ChatGPT 5 и Gemini 3 — самые мощные модели</li>
                 <li>Тексты, изображения, видео — топовые нейросети в одном месте</li>
-                <li>Veo 3.1, Flux, Kling, Wan, Seedream, Seedance, Nano Banana, Grok, Sora 2, Suno, Mureka и многие другие</li>
-                <li>Обработка фото, генерация стилей, студийная музыка (Suno, Mureka) и озвучка голосом</li>
-                <li>Поддержка 24/7 прямо в Telegram</li>
+                <li>Veo 3.1, Flux 2, Kling 3, Wan, Seedream, Seedance, Nano Banana, Grok, Sora 2, Suno 5, Mureka и многие другие</li>
+                <li>Обработка фото, генерация стилей, студийная музыка (Suno 5, Mureka) и озвучка голосом</li>
+                <li>Поддержка 24/7 прямо в Telegram. В боте регулярно добавляются новые ИИ</li>
             </ul>
             <a href="#" id="ctaBtn" class="cta-btn">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
                 Перейти в Telegram
             </a>
         </div>
+
+        <section class="card card-extra">
+            <h2>Подробнее о боте Vision Flow</h2>
+            <p>Vision Flow — это AI-студия в формате Telegram-бота. В одном чате вы получаете доступ к десяткам нейросетей: для текста, изображений, видео и музыки. Не нужно устанавливать приложения или заходить на разные сайты — всё открывается в Telegram на телефоне или компьютере.</p>
+            <p>Бот работает круглосуточно. Вы отправляете запрос текстом или картинкой, выбираете модель из меню и получаете результат. Для платных моделей пополняете баланс внутри бота; бесплатные лимиты доступны для ChatGPT 5 и Gemini 3. Поддержка отвечает в том же чате, если возникнут вопросы по оплате или использованию.</p>
+            <div class="content-img-wrap">
+                <img src="https://picsum.photos/seed/visionflow1/600/360" alt="Vision Flow — интерфейс в Telegram" width="600" height="360">
+                <p class="content-img-caption">Работа с нейросетями прямо в Telegram</p>
+            </div>
+        </section>
+
+        <section class="card card-extra">
+            <h2>Инструкция: как начать пользоваться Vision Flow</h2>
+            <ol class="steps-list">
+                <li>Нажмите кнопку «Перейти в Telegram» на этой странице — откроется чат с ботом Vision Flow.</li>
+                <li>Нажмите «Запустить» или отправьте команду /start в чате бота.</li>
+                <li>Откройте меню бота (кнопка меню внизу или команда). Выберите раздел: текст (ChatGPT, Gemini), изображения, видео или музыка.</li>
+                <li>Выберите нужную модель — например, ChatGPT 5 для текста или Flux 2 для картинок.</li>
+                <li>Отправьте запрос: текстовое описание или фото. Для генерации изображений и видео опишите, что хотите получить.</li>
+                <li>Дождитесь ответа. Результат придёт в тот же чат. При необходимости пополните баланс в разделе «Баланс» или «Оплата».</li>
+            </ol>
+            <p>После первого запуска все разделы доступны из меню. Бесплатные модели можно использовать сразу; для платных потребуется пополнение баланса.</p>
+        </section>
+
+        <section class="card card-extra">
+            <h2>Примеры использования Vision Flow</h2>
+            <p>Напишите ChatGPT 5 или Gemini пост для соцсетей, сценарий для ролика или идеи для блога. Загрузите фото в раздел изображений и попросите перерисовать в другом стиле или улучшить качество. Для видео опишите сцену текстом или загрузите референс — Veo, Wan или Sora сгенерируют ролик. В разделе музыки Suno и Mureka создадут трек по описанию или озвучят текст голосом.</p>
+            <div class="content-img-wrap">
+                <img src="https://picsum.photos/seed/visionflow2/600/360" alt="Генерация контента в Vision Flow" width="600" height="360">
+                <p class="content-img-caption">Тексты, изображения, видео и музыка в одном боте</p>
+            </div>
+        </section>
 
         <section class="video-section" id="videoSection">
             <video id="landingVideo" autoplay muted loop playsinline>
@@ -645,6 +727,51 @@
             <div class="video-sound-btn" id="videoSoundBtn" title="Включить звук">
                 <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
             </div>
+        </section>
+
+        <section class="card card-extra">
+            <h2>Как это работает</h2>
+            <p>Vision Flow — это сервис внутри Telegram. Откройте бота по кнопке ниже, начните диалог или выберите нужную нейросеть из меню. Генерация текста, изображений, видео и музыки доступна сразу после перехода. Оплата — картой или другими способами внутри бота.</p>
+        </section>
+
+        <section class="card card-extra">
+            <h2>Для кого</h2>
+            <p>Бот подойдёт создателям контента, маркетологам, дизайнерам и всем, кому нужен доступ к разным AI-моделям в одном месте без переключения между сервисами и без VPN.</p>
+        </section>
+
+        <section class="card card-extra">
+            <h2>О проекте Vision Flow</h2>
+            <p>Мы объединяем популярные нейросети (ChatGPT, Gemini, Veo, Flux, Kling, Suno и другие) в одном Telegram-боте. Цены ниже, чем на официальных сайтах. Новые модели добавляются регулярно. Служба поддержки отвечает в боте.</p>
+        </section>
+
+        <section class="card card-extra">
+            <h2>Что можно делать в Vision Flow</h2>
+            <p><strong>Тексты:</strong> статьи, посты, сценарии, описания — ChatGPT 5 и Gemini 3 отвечают на вопросы и генерируют любой текст.</p>
+            <p><strong>Изображения:</strong> картинки по описанию, стилизация фото, улучшение качества — Flux 2, Kling 3, Seedream и другие модели.</p>
+            <p><strong>Видео:</strong> создание роликов по текстовому запросу или из фото — Veo 3.1, Wan, Sora 2, Seedance.</p>
+            <p><strong>Музыка:</strong> генерация треков и озвучка голосом — Suno 5 и Mureka.</p>
+        </section>
+
+        <section class="card card-extra">
+            <h2>Почему Vision Flow удобнее отдельных сервисов</h2>
+            <p>Не нужно регистрироваться на десятках сайтов и следить за подписками. Один бот, один интерфейс. Работает без VPN из любой страны. Оплата картой, криптовалютой и другими способами. Баланс пополняется внутри бота — списание только за реальное использование.</p>
+            <div class="content-img-wrap">
+                <img src="https://picsum.photos/seed/visionflow3/600/360" alt="Удобный доступ к нейросетям" width="600" height="360">
+                <p class="content-img-caption">Всё в одном месте — без лишних регистраций</p>
+            </div>
+        </section>
+
+        <section class="card card-extra">
+            <h2>Оплата и баланс в Vision Flow</h2>
+            <p>Пополнение баланса выполняется внутри бота. Доступны оплата банковской картой, криптовалюта и другие способы — полный список отображается в разделе «Пополнить» или «Баланс». Стоимость списывается только за фактическое использование выбранных моделей: за генерацию изображения, видео, музыки или за запросы к платным текстовым моделям. Бесплатные лимиты ChatGPT 5 и Gemini 3 не требуют пополнения.</p>
+        </section>
+
+        <section class="card card-extra">
+            <h2>Частые вопросы</h2>
+            <p><strong>Нужна ли регистрация?</strong> Да, только в Telegram. Никаких отдельных аккаунтов.</p>
+            <p><strong>Как оплачивать?</strong> Картой, криптой и другими способами — всё настраивается в боте.</p>
+            <p><strong>Есть ли бесплатный доступ?</strong> Да. ChatGPT 5 и Gemini 3 доступны бесплатно с лимитами.</p>
+            <p><strong>Поддерживается ли русский язык?</strong> Да, все модели понимают и генерируют текст на русском.</p>
         </section>
 
         <p class="footer-note">Работает в Telegram • Без установки приложений</p>
@@ -676,14 +803,11 @@
         function goToBot() {
             if (redirected) return;
             redirected = true;
-            clearTimeout(autoRedirectTimer);
             const startParam = buildStartParam(clientId);
             const botLink = 'https://t.me/vision_flow_bot?start=' + encodeURIComponent(startParam);
             if (typeof gtag === 'function') gtag('event', 'page_view');
             setTimeout(function() { window.location.href = botLink; }, 500);
         }
-
-        var autoRedirectTimer = setTimeout(goToBot, 15 * 60 * 1000);
 
         document.getElementById('ctaBtn').addEventListener('click', function(e) {
             e.preventDefault();
