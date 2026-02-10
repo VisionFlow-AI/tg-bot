@@ -271,24 +271,28 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 16px 24px;
+    padding: 12px 20px;
     background: rgba(5,5,12,0.85);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 .site-header-inner {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
+    flex-wrap: nowrap;
+    gap: 20px;
 }
 .site-logo {
     font-family: 'Unbounded', sans-serif;
     font-weight: 800;
-    font-size: 1.4rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
     background: linear-gradient(135deg, var(--accent), var(--purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -297,15 +301,19 @@ body {
 .site-nav {
     display: flex;
     align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
+    gap: 4px;
+    flex-wrap: nowrap;
+    flex: 1;
+    justify-content: flex-end;
+    min-width: 0;
 }
 .nav-link {
     color: rgba(255,255,255,0.85);
     text-decoration: none;
-    padding: 10px 16px;
-    border-radius: 12px;
-    font-size: 0.95rem;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    white-space: nowrap;
     transition: color 0.2s, background 0.2s;
 }
 .nav-link:hover { color: #fff; background: rgba(255,255,255,0.08); }
@@ -315,13 +323,14 @@ body {
     background: none;
     border: none;
     font-family: inherit;
-    font-size: 0.95rem;
-    padding: 10px 16px;
+    font-size: 0.9rem;
+    padding: 8px 12px;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 4px;
-    border-radius: 12px;
+    border-radius: 10px;
+    white-space: nowrap;
     transition: color 0.2s, background 0.2s;
 }
 .nav-dropdown-trigger:hover { color: #fff; background: rgba(255,255,255,0.08); }
@@ -354,15 +363,17 @@ body {
 .cta-btn-nav {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
+    gap: 6px;
+    padding: 8px 16px;
     background: linear-gradient(135deg, var(--accent), #00b8d4);
     color: #030308;
     font-family: 'Unbounded', sans-serif;
     font-weight: 700;
-    font-size: 0.9rem;
-    border-radius: 12px;
+    font-size: 0.85rem;
+    border-radius: 10px;
     text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 .cta-btn-nav:hover { transform: translateY(-2px); box-shadow: 0 0 30px var(--accent-glow); }
@@ -723,6 +734,8 @@ body {
 
 @media (max-width: 768px) {
     .burger-btn { display: flex; }
+    .nav-dropdown { width: 100%; }
+    .nav-dropdown-trigger { width: 100%; justify-content: center; }
     .nav-dropdown-menu { position: static; margin-top: 0; opacity: 1; visibility: visible; transform: none; max-height: 0; overflow: hidden; padding: 0; border: none; background: transparent; }
     .nav-dropdown.open .nav-dropdown-menu { max-height: 120px; padding: 8px 0 8px 16px; }
     .site-nav {
