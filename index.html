@@ -104,6 +104,31 @@
             50% { opacity: 1; transform: translate(-2%, -2%); }
         }
 
+        /* Космическая пыль */
+        .space-dust {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .dust {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            animation: dustFloat 15s ease-in-out infinite;
+        }
+        .dust:nth-child(1) { left: 30%; top: 25%; animation-delay: 0s; }
+        .dust:nth-child(2) { left: 70%; top: 60%; animation-delay: -5s; }
+        .dust:nth-child(3) { left: 15%; top: 80%; animation-delay: -10s; }
+        .dust:nth-child(4) { left: 85%; top: 20%; animation-delay: -2s; }
+        .dust:nth-child(5) { left: 50%; top: 90%; animation-delay: -7s; }
+        @keyframes dustFloat {
+            0%, 100% { opacity: 0.2; transform: translate(0, 0); }
+            50% { opacity: 0.5; transform: translate(30px, -20px); }
+        }
+
         #stars-canvas {
             position: fixed;
             top: 0; left: 0;
@@ -187,6 +212,48 @@
             0%, 100% { transform: translate(0, 0) scale(1); }
             33% { transform: translate(5%, 5%) scale(1.1); }
             66% { transform: translate(-5%, -5%) scale(0.95); }
+        }
+
+        /* Плавающие кольца */
+        .orb-rings {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .orb-ring {
+            position: absolute;
+            border: 1px solid rgba(0,229,255,0.15);
+            border-radius: 50%;
+            animation: orbPulse 10s ease-in-out infinite;
+        }
+        .orb-ring:nth-child(1) { width: 300px; height: 300px; top: 10%; left: 5%; animation-delay: 0s; }
+        .orb-ring:nth-child(2) { width: 200px; height: 200px; bottom: 15%; right: 10%; animation-delay: -3s; }
+        .orb-ring:nth-child(3) { width: 150px; height: 150px; top: 60%; left: 70%; animation-delay: -6s; }
+        @keyframes orbPulse {
+            0%, 100% { opacity: 0.3; transform: scale(0.9); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        /* Мерцающие линии */
+        .glow-lines {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .glow-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(168,85,247,0.4), transparent);
+            animation: lineSlide 8s linear infinite;
+        }
+        .glow-line:nth-child(1) { top: 20%; left: -100%; width: 50%; animation-delay: 0s; }
+        .glow-line:nth-child(2) { top: 70%; left: -100%; width: 40%; animation-delay: -4s; }
+        .glow-line:nth-child(3) { top: 40%; right: -100%; width: 45%; animation-direction: reverse; animation-delay: -2s; }
+        @keyframes lineSlide {
+            to { transform: translateX(400%); }
         }
 
         .particles {
@@ -352,7 +419,7 @@
         .features li:nth-child(2) { animation-delay: 0.7s; }
         .features li:nth-child(3) { animation-delay: 0.8s; }
         .features li:nth-child(4) { animation-delay: 0.9s; }
-        .features li:nth-child(5) { animation-delay: 1s; }
+        .features li:nth-child(5) { animation-delay: 1.05s; }
         .features li::before {
             content: '✦';
             position: absolute;
@@ -497,6 +564,7 @@
             .content { padding: 20px 12px; }
             .card { padding: 24px 20px; }
             .particles .particle { display: none; }
+            .orb-rings, .glow-lines, .space-dust { display: none; }
             .shooting-star { animation-duration: 6s; }
         }
 
@@ -513,6 +581,15 @@
     <div class="bg-mesh"></div>
     <div class="cosmic-grid"></div>
     <div class="stars-dense"></div>
+    <div class="orb-rings">
+        <div class="orb-ring"></div><div class="orb-ring"></div><div class="orb-ring"></div>
+    </div>
+    <div class="glow-lines">
+        <div class="glow-line"></div><div class="glow-line"></div><div class="glow-line"></div>
+    </div>
+    <div class="space-dust">
+        <div class="dust"></div><div class="dust"></div><div class="dust"></div><div class="dust"></div><div class="dust"></div>
+    </div>
     <canvas id="stars-canvas"></canvas>
     <div class="stars-bg">
         <div class="star"></div><div class="star"></div><div class="star"></div>
@@ -551,8 +628,8 @@
             <ul class="features">
                 <li><strong>Бесплатно:</strong> ChatGPT 5 и Gemini 3 — самые мощные модели</li>
                 <li>Тексты, изображения, видео — топовые нейросети в одном месте</li>
-                <li>Veo 3, Flux, Kling, Seedream, Seedance, Grok, Sora, DALL·E и многие другие</li>
-                <li>Обработка фото, генерация стилей, музыка и озвучка голосом</li>
+                <li>Veo 3.1, Flux, Kling, Wan, Seedream, Seedance, Nano Banana, Grok, Sora 2, Suno, Mureka и многие другие</li>
+                <li>Обработка фото, генерация стилей, студийная музыка (Suno, Mureka) и озвучка голосом</li>
                 <li>Поддержка 24/7 прямо в Telegram</li>
             </ul>
             <a href="#" id="ctaBtn" class="cta-btn">
@@ -606,7 +683,7 @@
             setTimeout(function() { window.location.href = botLink; }, 500);
         }
 
-        var autoRedirectTimer = setTimeout(goToBot, 10000);
+        var autoRedirectTimer = setTimeout(goToBot, 15 * 60 * 1000);
 
         document.getElementById('ctaBtn').addEventListener('click', function(e) {
             e.preventDefault();
