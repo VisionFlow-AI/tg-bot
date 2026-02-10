@@ -29,7 +29,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
+    <link rel="stylesheet" href="style.css">
+    <!--
         :root {
             --space: #030308;
             --accent: #00e5ff;
@@ -296,6 +297,80 @@
             100% { opacity: 0; transform: scale(0.3); }
         }
 
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 24px;
+            background: rgba(5,5,12,0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .site-header-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .site-logo {
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+        .site-nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            transition: color 0.2s, background 0.2s;
+        }
+        .nav-link:hover { color: #fff; background: rgba(255,255,255,0.08); }
+        .cta-btn-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--accent), #00b8d4);
+            color: #030308;
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-btn-nav:hover { transform: translateY(-2px); box-shadow: 0 0 30px var(--accent-glow); }
+        .page-content { padding-top: 100px; }
+        .site-footer {
+            position: relative;
+            z-index: 1;
+            margin-top: 60px;
+            padding: 32px 24px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            text-align: center;
+        }
+        .site-footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+        .site-footer a:hover { color: var(--accent); }
+        .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-bottom: 16px; }
+        .footer-copy { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+        .content-inner { max-width: 720px; margin: 0 auto; padding: 24px 16px 60px; }
+
         .content {
             position: relative;
             z-index: 1;
@@ -305,6 +380,7 @@
             align-items: center;
             justify-content: center;
             padding: 24px 16px;
+            padding-top: 100px;
         }
 
         /* Hero */
@@ -625,7 +701,7 @@
                 transition-duration: 0.01ms !important;
             }
         }
-    </style>
+    -->
 </head>
 <body>
     <div class="bg-mesh"></div>
@@ -663,6 +739,23 @@
 
     <div id="cursor-trail"></div>
 
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a href="index.html" class="site-logo" id="navLogo">Vision Flow</a>
+            <nav class="site-nav">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="about.html" class="nav-link">О боте</a>
+                <a href="howto.html" class="nav-link">Как начать</a>
+                <a href="possibilities.html" class="nav-link">Возможности</a>
+                <a href="faq.html" class="nav-link">Вопросы</a>
+                <a href="#" class="cta-btn-nav" id="headerCtaBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                    В Telegram
+                </a>
+            </nav>
+        </div>
+    </header>
+
     <main class="content">
         <section class="hero">
             <h1 class="hero-logo">Vision Flow</h1>
@@ -688,38 +781,6 @@
             </a>
         </div>
 
-        <section class="card card-extra">
-            <h2>Подробнее о боте Vision Flow</h2>
-            <p>Vision Flow — это AI-студия в формате Telegram-бота. В одном чате вы получаете доступ к десяткам нейросетей: для текста, изображений, видео и музыки. Не нужно устанавливать приложения или заходить на разные сайты — всё открывается в Telegram на телефоне или компьютере.</p>
-            <p>Бот работает круглосуточно. Вы отправляете запрос текстом или картинкой, выбираете модель из меню и получаете результат. Для платных моделей пополняете баланс внутри бота; бесплатные лимиты доступны для ChatGPT 5 и Gemini 3. Поддержка отвечает в том же чате, если возникнут вопросы по оплате или использованию.</p>
-            <div class="content-img-wrap">
-                <img src="https://picsum.photos/seed/visionflow1/600/360" alt="Vision Flow — интерфейс в Telegram" width="600" height="360">
-                <p class="content-img-caption">Работа с нейросетями прямо в Telegram</p>
-            </div>
-        </section>
-
-        <section class="card card-extra">
-            <h2>Инструкция: как начать пользоваться Vision Flow</h2>
-            <ol class="steps-list">
-                <li>Нажмите кнопку «Перейти в Telegram» на этой странице — откроется чат с ботом Vision Flow.</li>
-                <li>Нажмите «Запустить» или отправьте команду /start в чате бота.</li>
-                <li>Откройте меню бота (кнопка меню внизу или команда). Выберите раздел: текст (ChatGPT, Gemini), изображения, видео или музыка.</li>
-                <li>Выберите нужную модель — например, ChatGPT 5 для текста или Flux 2 для картинок.</li>
-                <li>Отправьте запрос: текстовое описание или фото. Для генерации изображений и видео опишите, что хотите получить.</li>
-                <li>Дождитесь ответа. Результат придёт в тот же чат. При необходимости пополните баланс в разделе «Баланс» или «Оплата».</li>
-            </ol>
-            <p>После первого запуска все разделы доступны из меню. Бесплатные модели можно использовать сразу; для платных потребуется пополнение баланса.</p>
-        </section>
-
-        <section class="card card-extra">
-            <h2>Примеры использования Vision Flow</h2>
-            <p>Напишите ChatGPT 5 или Gemini пост для соцсетей, сценарий для ролика или идеи для блога. Загрузите фото в раздел изображений и попросите перерисовать в другом стиле или улучшить качество. Для видео опишите сцену текстом или загрузите референс — Veo, Wan или Sora сгенерируют ролик. В разделе музыки Suno и Mureka создадут трек по описанию или озвучят текст голосом.</p>
-            <div class="content-img-wrap">
-                <img src="https://picsum.photos/seed/visionflow2/600/360" alt="Генерация контента в Vision Flow" width="600" height="360">
-                <p class="content-img-caption">Тексты, изображения, видео и музыка в одном боте</p>
-            </div>
-        </section>
-
         <section class="video-section" id="videoSection">
             <video id="landingVideo" autoplay muted loop playsinline>
                 <source src="video.mp4" type="video/mp4">
@@ -729,91 +790,22 @@
             </div>
         </section>
 
-        <section class="card card-extra">
-            <h2>Как это работает</h2>
-            <p>Vision Flow — это сервис внутри Telegram. Откройте бота по кнопке ниже, начните диалог или выберите нужную нейросеть из меню. Генерация текста, изображений, видео и музыки доступна сразу после перехода. Оплата — картой или другими способами внутри бота.</p>
-        </section>
-
-        <section class="card card-extra">
-            <h2>Для кого</h2>
-            <p>Бот подойдёт создателям контента, маркетологам, дизайнерам и всем, кому нужен доступ к разным AI-моделям в одном месте без переключения между сервисами и без VPN.</p>
-        </section>
-
-        <section class="card card-extra">
-            <h2>О проекте Vision Flow</h2>
-            <p>Мы объединяем популярные нейросети (ChatGPT, Gemini, Veo, Flux, Kling, Suno и другие) в одном Telegram-боте. Цены ниже, чем на официальных сайтах. Новые модели добавляются регулярно. Служба поддержки отвечает в боте.</p>
-        </section>
-
-        <section class="card card-extra">
-            <h2>Что можно делать в Vision Flow</h2>
-            <p><strong>Тексты:</strong> статьи, посты, сценарии, описания — ChatGPT 5 и Gemini 3 отвечают на вопросы и генерируют любой текст.</p>
-            <p><strong>Изображения:</strong> картинки по описанию, стилизация фото, улучшение качества — Flux 2, Kling 3, Seedream и другие модели.</p>
-            <p><strong>Видео:</strong> создание роликов по текстовому запросу или из фото — Veo 3.1, Wan, Sora 2, Seedance.</p>
-            <p><strong>Музыка:</strong> генерация треков и озвучка голосом — Suno 5 и Mureka.</p>
-        </section>
-
-        <section class="card card-extra">
-            <h2>Почему Vision Flow удобнее отдельных сервисов</h2>
-            <p>Не нужно регистрироваться на десятках сайтов и следить за подписками. Один бот, один интерфейс. Работает без VPN из любой страны. Оплата картой, криптовалютой и другими способами. Баланс пополняется внутри бота — списание только за реальное использование.</p>
-            <div class="content-img-wrap">
-                <img src="https://picsum.photos/seed/visionflow3/600/360" alt="Удобный доступ к нейросетям" width="600" height="360">
-                <p class="content-img-caption">Всё в одном месте — без лишних регистраций</p>
-            </div>
-        </section>
-
-        <section class="card card-extra">
-            <h2>Оплата и баланс в Vision Flow</h2>
-            <p>Пополнение баланса выполняется внутри бота. Доступны оплата банковской картой, криптовалюта и другие способы — полный список отображается в разделе «Пополнить» или «Баланс». Стоимость списывается только за фактическое использование выбранных моделей: за генерацию изображения, видео, музыки или за запросы к платным текстовым моделям. Бесплатные лимиты ChatGPT 5 и Gemini 3 не требуют пополнения.</p>
-        </section>
-
-        <section class="card card-extra">
-            <h2>Частые вопросы</h2>
-            <p><strong>Нужна ли регистрация?</strong> Да, только в Telegram. Никаких отдельных аккаунтов.</p>
-            <p><strong>Как оплачивать?</strong> Картой, криптой и другими способами — всё настраивается в боте.</p>
-            <p><strong>Есть ли бесплатный доступ?</strong> Да. ChatGPT 5 и Gemini 3 доступны бесплатно с лимитами.</p>
-            <p><strong>Поддерживается ли русский язык?</strong> Да, все модели понимают и генерируют текст на русском.</p>
-        </section>
-
         <p class="footer-note">Работает в Telegram • Без установки приложений</p>
     </main>
 
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="index.html">Главная</a>
+            <a href="about.html">О боте</a>
+            <a href="howto.html">Как начать</a>
+            <a href="possibilities.html">Возможности</a>
+            <a href="faq.html">Вопросы</a>
+        </div>
+        <p class="footer-copy">Vision Flow — AI-студия в Telegram. Без установки приложений.</p>
+    </footer>
+
+    <script src="common.js"></script>
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const yclid = urlParams.get('yclid');
-        const gclid = urlParams.get('gclid');
-        const utm_source = urlParams.get('utm_source') || (gclid ? 'google' : 'yandex');
-        const utm_medium = urlParams.get('utm_medium') || 'cpc';
-        const utm_campaign = urlParams.get('utm_campaign') || 'direct';
-        const utm_term = urlParams.get('utm_term') || '';
-        const utm_content = urlParams.get('utm_content') || '';
-
-        let clientId = null;
-
-        function buildStartParam(clientId) {
-            let startParam = utm_source + '_' + utm_medium + '_' + utm_campaign;
-            if (utm_term) startParam += '_' + utm_term;
-            if (utm_content) startParam += '_' + utm_content;
-            if (clientId) startParam += '_cid_' + clientId;
-            if (yclid && yclid !== '{logid}') startParam += '_yclid_' + yclid;
-            if (gclid) startParam += '_gclid_' + gclid;
-            return startParam;
-        }
-
-        let redirected = false;
-        function goToBot() {
-            if (redirected) return;
-            redirected = true;
-            const startParam = buildStartParam(clientId);
-            const botLink = 'https://t.me/vision_flow_bot?start=' + encodeURIComponent(startParam);
-            if (typeof gtag === 'function') gtag('event', 'page_view');
-            setTimeout(function() { window.location.href = botLink; }, 500);
-        }
-
-        document.getElementById('ctaBtn').addEventListener('click', function(e) {
-            e.preventDefault();
-            goToBot();
-        });
-
         (function() {
             var video = document.getElementById('landingVideo');
             var btn = document.getElementById('videoSoundBtn');
@@ -828,10 +820,6 @@
                 if (video.muted) unmute();
             });
         })();
-
-        if (typeof ym !== 'undefined') {
-            ym(104830688, 'getClientID', function(retrievedClientID) { clientId = retrievedClientID; });
-        }
 
         (function() {
             const canvas = document.getElementById('stars-canvas');
