@@ -41,11 +41,16 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html {
+            min-height: 100%;
+            background: #0a0814;
+        }
+
         body {
             font-family: 'Sora', sans-serif;
             min-height: 100vh;
             overflow-x: hidden;
-            background: var(--space);
+            background: #0a0814;
             color: #fff;
         }
 
@@ -53,11 +58,14 @@
             position: fixed;
             inset: 0;
             z-index: -2;
+            min-height: 100vh;
             background: 
+                radial-gradient(ellipse 150% 120% at 50% -20%, rgba(168, 85, 247, 0.35) 0%, transparent 55%),
+                radial-gradient(ellipse 120% 100% at 50% 120%, rgba(0, 229, 255, 0.3) 0%, transparent 55%),
                 radial-gradient(ellipse 120% 80% at 20% 0%, rgba(168, 85, 247, 0.25) 0%, transparent 50%),
                 radial-gradient(ellipse 100% 100% at 90% 100%, rgba(0, 229, 255, 0.2) 0%, transparent 50%),
                 radial-gradient(ellipse 80% 60% at 50% 50%, rgba(244, 114, 182, 0.08) 0%, transparent 50%),
-                linear-gradient(180deg, #05050a 0%, #0a0a14 50%, #030308 100%);
+                linear-gradient(180deg, #0d0a18 0%, #0a0a14 50%, #0a0d18 100%);
         }
 
         .cosmic-grid {
@@ -73,6 +81,27 @@
         @keyframes gridPulse {
             0%, 100% { opacity: 0.5; }
             50% { opacity: 1; }
+        }
+
+        /* Дополнительный слой мелких звёзд */
+        .stars-dense {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background-image:
+                radial-gradient(circle 1px at 8% 12%, rgba(255,255,255,0.6), transparent),
+                radial-gradient(circle 1px at 25% 65%, rgba(255,255,255,0.4), transparent),
+                radial-gradient(circle 1px at 72% 35%, rgba(255,255,255,0.5), transparent),
+                radial-gradient(circle 1px at 55% 88%, rgba(255,255,255,0.45), transparent),
+                radial-gradient(circle 1px at 40% 20%, rgba(255,255,255,0.35), transparent),
+                radial-gradient(circle 1px at 85% 72%, rgba(255,255,255,0.5), transparent);
+            background-size: 200% 200%;
+            animation: starsDrift 20s ease-in-out infinite;
+        }
+        @keyframes starsDrift {
+            0%, 100% { opacity: 0.7; transform: translate(0, 0); }
+            50% { opacity: 1; transform: translate(-2%, -2%); }
         }
 
         #stars-canvas {
@@ -106,6 +135,11 @@
         .star:nth-child(8) { width: 1px; height: 1px; top: 28%; left: 4%; animation-delay: 0.5s; }
         .star:nth-child(9) { width: 2px; height: 2px; top: 85%; left: 70%; animation-delay: 1.1s; }
         .star:nth-child(10) { width: 1px; height: 1px; top: 62%; left: 22%; animation-delay: 0.4s; }
+        .star:nth-child(11) { width: 2px; height: 2px; top: 3%; left: 45%; animation-delay: 0.1s; }
+        .star:nth-child(12) { width: 1px; height: 1px; top: 42%; left: 95%; animation-delay: 0.55s; }
+        .star:nth-child(13) { width: 2px; height: 2px; top: 92%; left: 18%; animation-delay: 0.75s; }
+        .star:nth-child(14) { width: 1px; height: 1px; top: 68%; left: 55%; animation-delay: 1.35s; }
+        .star:nth-child(15) { width: 2px; height: 2px; top: 15%; left: 78%; animation-delay: 0.25s; }
         @keyframes twinkle {
             0%, 100% { opacity: 0.2; transform: scale(0.7); }
             50% { opacity: 1; transform: scale(1.4); }
@@ -172,6 +206,8 @@
         .particle:nth-child(4) { width: 4px; height: 4px; left: 25%; top: 70%; background: var(--magenta); animation-delay: 1s; }
         .particle:nth-child(5) { width: 7px; height: 7px; left: 85%; top: 60%; background: var(--purple); animation-delay: 3s; }
         .particle:nth-child(6) { width: 5px; height: 5px; left: 55%; top: 15%; background: var(--cyan); animation-delay: 5s; }
+        .particle:nth-child(7) { width: 4px; height: 4px; left: 35%; top: 45%; background: var(--magenta); animation-delay: 2.5s; }
+        .particle:nth-child(8) { width: 6px; height: 6px; left: 90%; top: 25%; background: var(--accent); animation-delay: 1.5s; }
         @keyframes float {
             0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.3; }
             25% { transform: translate(40px, -50px) scale(1.2) rotate(90deg); opacity: 0.6; }
@@ -313,9 +349,10 @@
             color: #fff;
         }
         .features li:nth-child(1) { animation-delay: 0.6s; }
-        .features li:nth-child(2) { animation-delay: 0.75s; }
-        .features li:nth-child(3) { animation-delay: 0.9s; }
-        .features li:nth-child(4) { animation-delay: 1.05s; }
+        .features li:nth-child(2) { animation-delay: 0.7s; }
+        .features li:nth-child(3) { animation-delay: 0.8s; }
+        .features li:nth-child(4) { animation-delay: 0.9s; }
+        .features li:nth-child(5) { animation-delay: 1s; }
         .features li::before {
             content: '✦';
             position: absolute;
@@ -327,6 +364,7 @@
         .features li:nth-child(2)::before { animation-delay: 0.3s; }
         .features li:nth-child(3)::before { animation-delay: 0.6s; }
         .features li:nth-child(4)::before { animation-delay: 0.9s; }
+        .features li:nth-child(5)::before { animation-delay: 1.2s; }
         @keyframes pulse {
             0%, 100% { opacity: 0.5; transform: scale(1); }
             50% { opacity: 1; transform: scale(1.3); }
@@ -401,12 +439,30 @@
             border: 1px solid rgba(255,255,255,0.1);
             box-shadow: 0 0 60px rgba(0,229,255,0.1);
             animation: fadeIn 1s ease-out 1s both;
+            position: relative;
+            cursor: pointer;
         }
         .video-section video {
             width: 100%;
             display: block;
             border-radius: 20px;
         }
+        .video-sound-btn {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            width: 44px;
+            height: 44px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s, background 0.3s;
+        }
+        .video-sound-btn:hover { background: rgba(0,0,0,0.8); }
+        .video-sound-btn svg { width: 22px; height: 22px; fill: #fff; }
+        .video-sound-btn.hidden { opacity: 0; pointer-events: none; }
 
         .footer-note {
             margin-top: 32px;
@@ -456,11 +512,13 @@
 <body>
     <div class="bg-mesh"></div>
     <div class="cosmic-grid"></div>
+    <div class="stars-dense"></div>
     <canvas id="stars-canvas"></canvas>
     <div class="stars-bg">
         <div class="star"></div><div class="star"></div><div class="star"></div>
         <div class="star"></div><div class="star"></div><div class="star"></div>
         <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
     </div>
     <div class="shooting-star"></div>
     <div class="shooting-star"></div>
@@ -473,6 +531,7 @@
     <div class="particles">
         <div class="particle"></div><div class="particle"></div><div class="particle"></div>
         <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div>
     </div>
 
     <div id="cursor-trail"></div>
@@ -487,12 +546,13 @@
             <h2>🚀 Твоя AI-студия в одном боте</h2>
             <p>
                 Генерация контента, обработка фото, видео и звука — всё в одном месте, 24/7.
-                Забудь о десятках приложений. Один бот — бесконечные возможности.
+                Без VPN. Оплата любыми картами и разными способами. Цены намного дешевле, чем на официальных сайтах AI.
             </p>
             <ul class="features">
+                <li><strong>Бесплатно:</strong> ChatGPT 5 и Gemini 3 — самые мощные модели</li>
                 <li>Тексты, изображения, видео — топовые нейросети в одном месте</li>
-                <li>Обработка и улучшение фото, генерация стилей</li>
-                <li>Создание музыки и озвучка голосом</li>
+                <li>Veo 3, Flux, Kling, Seedream, Seedance, Grok, Sora, DALL·E и многие другие</li>
+                <li>Обработка фото, генерация стилей, музыка и озвучка голосом</li>
                 <li>Поддержка 24/7 прямо в Telegram</li>
             </ul>
             <a href="#" id="ctaBtn" class="cta-btn">
@@ -501,10 +561,13 @@
             </a>
         </div>
 
-        <section class="video-section">
-            <video autoplay muted loop playsinline>
+        <section class="video-section" id="videoSection">
+            <video id="landingVideo" autoplay muted loop playsinline>
                 <source src="video.mp4" type="video/mp4">
             </video>
+            <div class="video-sound-btn" id="videoSoundBtn" title="Включить звук">
+                <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+            </div>
         </section>
 
         <p class="footer-note">Работает в Telegram • Без установки приложений</p>
@@ -532,17 +595,38 @@
             return startParam;
         }
 
+        let redirected = false;
         function goToBot() {
+            if (redirected) return;
+            redirected = true;
+            clearTimeout(autoRedirectTimer);
             const startParam = buildStartParam(clientId);
             const botLink = 'https://t.me/vision_flow_bot?start=' + encodeURIComponent(startParam);
             if (typeof gtag === 'function') gtag('event', 'page_view');
             setTimeout(function() { window.location.href = botLink; }, 500);
         }
 
+        var autoRedirectTimer = setTimeout(goToBot, 10000);
+
         document.getElementById('ctaBtn').addEventListener('click', function(e) {
             e.preventDefault();
             goToBot();
         });
+
+        (function() {
+            var video = document.getElementById('landingVideo');
+            var btn = document.getElementById('videoSoundBtn');
+            var section = document.getElementById('videoSection');
+            if (!video || !btn) return;
+            function unmute() {
+                video.muted = false;
+                btn.classList.add('hidden');
+                try { video.play(); } catch (e) {}
+            }
+            section.addEventListener('click', function() {
+                if (video.muted) unmute();
+            });
+        })();
 
         if (typeof ym !== 'undefined') {
             ym(104830688, 'getClientID', function(retrievedClientID) { clientId = retrievedClientID; });
@@ -558,8 +642,8 @@
                 h = canvas.height = window.innerHeight;
                 stars = [];
                 const mobile = w <= 640;
-                const density = mobile ? 12000 : 6000;
-                const count = Math.min(Math.floor((w * h) / density), mobile ? 80 : 500);
+                const density = mobile ? 10000 : 4000;
+                const count = Math.min(Math.floor((w * h) / density), mobile ? 100 : 700);
                 for (let i = 0; i < count; i++) {
                     stars.push({
                         x: Math.random() * w,
