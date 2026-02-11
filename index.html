@@ -865,11 +865,6 @@
             var input = document.getElementById('chatInput');
             var messages = document.getElementById('chatMessages');
             if (!form || !input || !messages) return;
-            var wrap = document.getElementById('chatInputWrap');
-            if (wrap) wrap.addEventListener('click', function() { input.focus(); });
-            form.addEventListener('click', function(e) {
-                if (!e.target.closest('.chat-send')) input.focus();
-            });
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 var text = input.value.trim();
