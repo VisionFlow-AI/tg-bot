@@ -34,8 +34,6 @@
         var btn = document.getElementById(id);
         if (btn) btn.addEventListener('click', function(e) { e.preventDefault(); window.goToBot(); });
     }
-    bindCta('ctaBtn');
-    bindCta('headerCtaBtn');
 
     (function burgerMenu() {
         var btn = document.getElementById('burgerBtn');
@@ -46,7 +44,7 @@
             nav.classList.toggle('nav-open');
             document.body.style.overflow = nav.classList.contains('nav-open') ? 'hidden' : '';
         });
-        [].slice.call(nav.querySelectorAll('.nav-link, .nav-dropdown-menu a')).forEach(function(a) {
+        [].slice.call(nav.querySelectorAll('.nav-link, .nav-dropdown-menu a, .cta-btn-nav')).forEach(function(a) {
             a.addEventListener('click', function() {
                 btn.classList.remove('active');
                 nav.classList.remove('nav-open');
@@ -77,7 +75,15 @@
         var sel = '.site-nav a[href^="index.html"], .site-nav a[href^="about.html"], .site-nav a[href^="howto.html"], .site-nav a[href^="possibilities.html"], .site-nav a[href^="faq.html"], .site-nav a[href^="privacy.html"], .site-nav a[href^="offer.html"], .footer-links a, .nav-dropdown-menu a';
         document.querySelectorAll(sel).forEach(function(a) {
             var href = a.getAttribute('href');
-            if (href && href !== '#' && href.indexOf('?') === -1) a.setAttribute('href', href + q);
+            if (!href || href === '#' || href.indexOf('?') !== -1) return;
+            var hash = '';
+            var path = href;
+            if (href.indexOf('#') !== -1) {
+                var idx = href.indexOf('#');
+                path = href.substring(0, idx);
+                hash = href.substring(idx);
+            }
+            a.setAttribute('href', path + q + hash);
         });
     })();
 

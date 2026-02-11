@@ -756,9 +756,9 @@
                         <a href="offer.html">Публичная оферта</a>
                     </div>
                 </div>
-                <a href="#" class="cta-btn-nav" id="headerCtaBtn">
+                <a href="#how-to-find-bot" class="cta-btn-nav">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-                    В Telegram
+                    Перейти в Telegram
                 </a>
             </nav>
         </div>
@@ -783,7 +783,7 @@
                 <li>Обработка фото, генерация стилей, студийная музыка (Suno 5, Mureka) и озвучка голосом</li>
                 <li>Поддержка 24/7 прямо в Telegram. В боте регулярно добавляются новые ИИ</li>
             </ul>
-            <a href="#" id="ctaBtn" class="cta-btn">
+            <a href="#how-to-find-bot" class="cta-btn">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
                 Перейти в Telegram
             </a>
@@ -798,6 +798,27 @@
             </div>
         </section>
 
+        <section class="card card-extra chat-demo">
+            <h2>Попробуйте чат</h2>
+            <p class="chat-demo-desc">Напишите любой текст — и узнайте, где бесплатно общаться с ChatGPT и другими нейросетями.</p>
+            <div class="chat-box">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="chat-msg chat-msg-bot">
+                        <span class="chat-msg-author">Vision Flow</span>
+                        <p>Привет! Напишите сообщение, чтобы узнать, как бесплатно пользоваться ChatGPT и другими ИИ.</p>
+                    </div>
+                </div>
+                <form class="chat-form" id="chatForm">
+                    <div class="chat-input-wrap" id="chatInputWrap">
+                        <input type="text" id="chatInput" placeholder="Напишите сообщение..." maxlength="500" autocomplete="off">
+                    </div>
+                    <button type="submit" class="chat-send" aria-label="Отправить">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    </button>
+                </form>
+            </div>
+        </section>
+
         <section class="card card-extra">
             <h2>Что такое нейросети и какие они бывают</h2>
             <p>Нейросети — это компьютерные системы, построенные по принципу работы мозга. Миллиарды искусственных «нейронов» соединены друг с другом и обрабатывают информацию, распознают паттерны и создают новый контент. В отличие от обычных программ, нейросети не следуют жёстким правилам: они учатся на примерах — текстах, картинках, видео — и могут решать задачи, которые раньше были под силу только человеку. Обучение на больших данных позволяет им понимать контекст, обобщать и творить.</p>
@@ -806,6 +827,13 @@
             <p>Видео-нейросети — Veo, Sora, Wan, Runway, Kling, Seedance — генерируют короткие ролики из текста или из одного кадра. Технология быстро развивается: ещё недавно видео было размытым и коротким, сейчас модели создают плавные клипы с детализацией. Используются для тизеров, соцсетей, презентаций и творческих проектов.</p>
             <p>Музыкальные модели — Suno, Udio, Mureka — создают треки по текстовому описанию, озвучивают текст голосом, подбирают стиль и аранжировку. Подходят для фоновой музыки, джинглов, подкастов и экспериментов со звуком.</p>
             <p>Раньше для всего этого приходилось регистрироваться на десятках сайтов, подписываться на каждый сервис и следить за разными интерфейсами. В Vision Flow собраны лучшие модели разных типов — текстовые, для картинок, видео и музыки. Можно попробовать всё в одном месте, сравнить результаты и выбрать подходящую модель, без лишних подписок и переключений между платформами.</p>
+        </section>
+
+        <section class="card card-extra" id="how-to-find-bot">
+            <h2>Как найти и открыть бот Vision Flow в Telegram</h2>
+            <p>Vision Flow — это AI-студия в формате бота для мессенджера Telegram. Чтобы начать пользоваться, откройте приложение Telegram на телефоне, планшете или компьютере. Если у вас ещё нет Telegram, установите его бесплатно из App Store, Google Play или скачайте десктопную версию с официального сайта telegram.org.</p>
+            <p>Найти бота можно несколькими способами. Самый простой — ввести в поиске Telegram запрос «Vision Flow», ник <strong>@vision_flow_bot</strong> или «vision_flow_bot». Откройте результат с именем Vision Flow и нажмите «Запустить» или «Start», чтобы начать диалог. Альтернативный способ — перейти по прямой ссылке в браузере: <strong>t.me/vision_flow_bot</strong>. Ссылка откроет Telegram (если он установлен) или предложит установить приложение.</p>
+            <p>После запуска бот откроет меню с разделами: текст, изображения, видео, музыка. Выберите нужную нейросеть, отправьте запрос — и получите результат в том же чате. Установка отдельных приложений не требуется: всё работает внутри Telegram.</p>
         </section>
 
         <p class="footer-note">Работает в Telegram • Без установки приложений</p>
@@ -832,6 +860,36 @@
 
     <script src="common.js"></script>
     <script>
+        (function chatDemo() {
+            var form = document.getElementById('chatForm');
+            var input = document.getElementById('chatInput');
+            var messages = document.getElementById('chatMessages');
+            if (!form || !input || !messages) return;
+            var wrap = document.getElementById('chatInputWrap');
+            if (wrap) wrap.addEventListener('click', function() { input.focus(); });
+            form.addEventListener('click', function(e) {
+                if (!e.target.closest('.chat-send')) input.focus();
+            });
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var text = input.value.trim();
+                if (!text) return;
+                var userMsg = document.createElement('div');
+                userMsg.className = 'chat-msg chat-msg-user';
+                userMsg.innerHTML = '<p>' + text.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</p>';
+                messages.appendChild(userMsg);
+                input.value = '';
+                messages.scrollTop = messages.scrollHeight;
+                setTimeout(function() {
+                    var botMsg = document.createElement('div');
+                    botMsg.className = 'chat-msg chat-msg-bot';
+                    botMsg.innerHTML = '<span class="chat-msg-author">Vision Flow</span><p>Чтобы бесплатно использовать ChatGPT, Gemini и другие нейросети, перейдите в бот Vision Flow в Telegram → <a href="#how-to-find-bot">Как найти бот</a></p>';
+                    messages.appendChild(botMsg);
+                    messages.scrollTop = messages.scrollHeight;
+                }, 600);
+            });
+        })();
+
         (function() {
             var video = document.getElementById('landingVideo');
             var btn = document.getElementById('videoSoundBtn');
